@@ -1,45 +1,53 @@
 # game/data/variables.rpy
-# Global game variables and tracking systems
 
 # ============================================================
 # RELATIONSHIP & AFFECTION TRACKING
 # ============================================================
-
-# Protagonist affection/connection levels with stranger
-default affinity_stranger = 0          # Main relationship tracker (0-8)
+default empathy = 0                     # Main relationship tracker
+default affinity_stranger = 0           # Legacy tracker (keep if used elsewhere)
+default stranger_relationship_tier = 0
+default openness_level = 0
+default connection_depth = 0            
 
 # Emotional state flags
-default has_reflected = False           # Whether player has opened up emotionally
-default regret_accepted = False         # Whether player accepts their past
-default vulnerability_shown = False     # Whether player showed vulnerability
+default has_reflected = False           
+default regret_accepted = False         
+default vulnerability_shown = False     
+default has_asked_identity = False
 
 # ============================================================
 # STORY PROGRESSION & STATE
 # ============================================================
-
-default game_state = STATE_INTRO        # Current act/scene
-default ending_type = None              # Which ending was achieved
-default total_choices_made = 0          # For tracking playtime/engagement
+default current_scene = "prologue"
+default game_state = STATE_INTRO        
+default scenes_visited = []
+default game_completion_percent = 0.0
+default ending_type = None              
+default total_choices_made = 0          
 
 # ============================================================
 # CHARACTER KNOWLEDGE & DISCOVERY
 # ============================================================
-
-default knows_stranger_name = False     # Does player know the stranger's name?
-default stranger_backstory_revealed = 0 # How much of their story is known (0-3)
-default connection_depth = 0            # How deeply connected (0-5)
+default knows_stranger_name = False     
+default stranger_backstory_revealed = 0 
+default stranger_dialogue_seen = {}
+default choice_history = {}
 
 # ============================================================
 # PLAYER CHOICES & PERSONALITY TRAITS
 # ============================================================
-
-default personality_honest = 0          # Honesty/openness score
-default personality_hopeful = 0         # Hopefulness/optimism score
-default personality_guarded = 0         # Guardedness/caution score
+default personality_honest = 0          
+default personality_hopeful = 0         
+default personality_guarded = 0         
 
 # ============================================================
 # MISC FLAGS
 # ============================================================
+default first_conversation_done = False 
+default final_choice_made = False       
 
-default first_conversation_done = False # Tracks prologue completion
-default final_choice_made = False       # Tracks if final decision has been made
+# ============================================================
+# DEBUG & CONFIG
+# ============================================================
+define DEBUG_MODE = True
+define DEBUG_UNLOCK_ALL_CHOICES = False

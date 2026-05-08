@@ -138,24 +138,14 @@ init python:
     # ========================================================
 
     def change_scene(new_scene):
-        """
-        Update current scene and track progress.
+        # Remove the 'global' line and use 'store.' instead
+        store.current_scene = new_scene
+        
+        if new_scene not in store.scenes_visited:
+            store.scenes_visited.append(new_scene)
 
-        Args:
-            new_scene (str): Scene identifier from constants
-        """
-        global current_scene, scenes_visited, game_completion_percent
-
-        current_scene = new_scene
-        if new_scene not in scenes_visited:
-            scenes_visited.append(new_scene)
-
-        # Update completion percentage (rough estimate)
-        total_scenes = 4  # prologue, act1, act2, climax
-        game_completion_percent = (len(scenes_visited) / total_scenes) * 100
-
-        if DEBUG_MODE:
-            print(f"[SCENE] Now in: {new_scene} ({game_completion_percent:.0f}% complete)")
+        total_scenes = 4 
+        store.game_completion_percent = (len(store.scenes_visited) / total_scenes) * 100
 
     def get_current_scene():
         """
@@ -164,7 +154,7 @@ init python:
         Returns:
             str: Current scene
         """
-        return current_scene
+        return  current_scene
 
     # ========================================================
     # STATE QUERY FUNCTIONS

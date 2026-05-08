@@ -74,7 +74,7 @@ label ending_truth:
         "To walk beside you."
         pause TEXT_PAUSE_MEDIUM
 
-        thought "I didn't meet a stranger. I finally listened to myself."
+        thoughts "I didn't meet a stranger. I finally listened to myself."
 
         pause TEXT_PAUSE_LONG
 
@@ -116,7 +116,7 @@ label ending_truth:
         "Recognition hits like a quiet wave."
         pause TEXT_PAUSE_SHORT
 
-        thought "It was always me. The part that was ready. The part that could heal."
+        thoughts "It was always me. The part that was ready. The part that could heal."
 
         pause TEXT_PAUSE_MEDIUM
 
@@ -144,7 +144,7 @@ label ending_truth:
         "But you don't."
         pause TEXT_PAUSE_LONG
 
-        thought "This is what I've been avoiding. Not the stranger. Myself."
+        thoughts "This is what I've been avoiding. Not the stranger. Myself."
 
         pause TEXT_PAUSE_MEDIUM
 
