@@ -1,9 +1,28 @@
-﻿# script.rpy
-# Main entry point for "The Last Train Home"
-# Handles initialization, audio setup, and routes to the first scene.
-# Keeps logic minimal. All characters, variables, and story flow live in modular files.
+﻿# game/script.rpy
+# ============================================================
+# THE LAST TRAIN HOME - Main Entry Point
+# ============================================================
+# This file orchestrates the game's initialization and flow.
+#
+# MODULAR STRUCTURE:
+#   - game/data/constants.rpy       → Game-wide constants & configuration
+#   - game/data/variables.rpy       → Default game state
+#   - game/characters/definitions.rpy → Character definitions
+#   - game/utils/helpers.rpy        → Utility functions
+#   - game/scenes/*.rpy             → Story scenes
+#   - game/routes/*.rpy             → Ending paths
+#
+# FILE LOADING ORDER (handled by Ren'Py automatically):
+#   1. Init phase (constants, definitions, helpers)
+#   2. Game start → label start
+#   3. Scene flow → various labels
+# ============================================================
 
-# CTC Animation (Click-to-Continue)
+# ============================================================
+# CLICK-TO-CONTINUE ANIMATION
+# ============================================================
+# Visual indicator that player can advance text
+
 image ctc:
     align (0.82, 0.90)
     "gui/ctc.png"
@@ -14,26 +33,55 @@ image ctc:
     pause 0.4
     repeat
 
-# NOTE: 
-# - Character definitions → system/characters.rpy
-# - Default variables    → system/variables.rpy
-# - Story flow           → scenes/ & routes/
+# ============================================================
+# GAME INITIALIZATION
+# ============================================================
+
+# Game initialization happens automatically via RenPy
+
+# ============================================================
+# MAIN ENTRY POINT
+# ============================================================
 
 label start:
+    """
+    The game begins here. This label is called automatically
+    when starting a new game.
+
+    Flow:
+    1. Enable quick menu
+    2. Initialize game state
+    3. Fade in and begin prologue
+    """
+
     $ quick_menu = True
 
-    # Fade from black
     scene black with fade
-
-    # Start ambient audio (replace with your actual BGM file)
-    play music "audio/station_ambience.ogg" fadein 2.0 volume 0.6
-
-    # Route to the modular prologue
+    pause 1.0
     jump prologue
 
+# ============================================================
+# GAME END HANDLER
+# ============================================================
 
 label end_game:
-    stop music fadeout 2.0
+    stop music fadeout 1.5
     scene black with fade
-    $ renpy.pause(2)
+    pause 2.0
     return
+
+# ============================================================
+# DEVELOPER NOTES
+# ============================================================
+# This modular structure keeps the codebase organized and scalable:
+#
+# Structure:
+#   game/data/          - Constants and game state
+#   game/characters/    - Character definitions
+#   game/scenes/        - Story content (prologue, acts)
+#   game/routes/        - Ending paths
+#   game/utils/         - Helper functions
+#
+# To add new content, create files following this structure.
+# File naming convention: XX_name.rpy (where XX = 2-digit number)
+# ============================================================
