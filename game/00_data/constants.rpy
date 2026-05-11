@@ -4,14 +4,14 @@
 # COLOR PALETTE
 define COLOR_PLAYER = "#e6e6e6"      # Light gray for player text
 define COLOR_STRANGER = "#8ab4f8"    # Soft blue for stranger
-define COLOR_ALEX = "#ff9999"        # Warm red for Alex
+define COLOR_LYNETTE = "#ff9999"        # Warm red for LYNETTE
 define COLOR_NARRATOR = "#ffffff"    # White for narrator
 define COLOR_SYSTEM = "#ffeb3b"      # Yellow for system messages
 
 # CHARACTER NAMES (for easy reference and consistency)
 define NAME_PLAYER = "Malvin"
 define NAME_STRANGER = "Stranger"
-define NAME_ALEX = "Alex"
+define NAME_LYNETTE = "Lynette"
 
 # GAME STATES (for tracking player progress)
 define STATE_INTRO = 0

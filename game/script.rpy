@@ -44,15 +44,6 @@ image ctc:
 # ============================================================
 
 label start:
-    """
-    The game begins here. This label is called automatically
-    when starting a new game.
-
-    Flow:
-    1. Enable quick menu
-    2. Initialize game state
-    3. Fade in and begin prologue
-    """
 
     $ quick_menu = True
 

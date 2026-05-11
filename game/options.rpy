@@ -37,7 +37,7 @@ define gui.about = _p("""
 ## distribution. This must be ASCII-only, and must not contain spaces, colons,
 ## or semicolons.
 
-define build.name = "ElegantGUIKit"
+define build.name = "The Last Train Home"
 
 
 ## Sounds and music ############################################################

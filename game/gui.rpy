@@ -11,6 +11,48 @@ init offset = -2
 init python:
     gui.init(1920, 1080)
 
+# Expose the intended screen dimensions as config values so other modules
+# and image transforms can reference them reliably.
+define config.screen_width = 1920
+define config.screen_height = 1080
+
+transform bg_fullscreen:
+    xpos 0
+    ypos 0
+    xanchor 0
+    yanchor 0
+    xysize (config.screen_width, config.screen_height)
+
+screen first_choice():
+    # Fullscreen background, scaled to the project's configured resolution
+    # Fallback to an existing background image (station_bench) if a dedicated selection background is not present.
+    add im.Scale("images/backgrounds/station_bench.png", config.screen_width, config.screen_height)
+
+    imagebutton:
+        focus_mask True
+        xalign 0.055
+        yalign 1.05
+        idle "juliaidle"
+        hover "juliahover"
+        action Jump("julia")
+
+    imagebutton:
+        focus_mask True
+        xalign 0.83
+        yalign 1.05
+        idle "pauloidle"
+        hover "paulohover"
+        action Jump("paulo")
+
+    hbox:
+        xalign 0.5
+        yalign 1.1
+        imagemap:
+            ground "gui/bg caption.png"
+            text "Escolha seu personagem":
+                xalign 0.5
+                yalign 0.5
+
 ## Enable checks for invalid or unstable properties in screens or transforms
 define config.check_conflicting_properties = True
 
