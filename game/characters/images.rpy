@@ -1,26 +1,47 @@
 # game/characters/images.rpy
 
 init 10:
+    # CUSTOM POSITION PADDING
+    # This prevents characters from sticking to the very edges of the screen
+    transform left:
+        xalign 0.15
+        yalign 1.0
+
+    transform right:
+        xalign 0.85
+        yalign 1.0
+
+    # =========================================================================
+    # HOW TO FIX DIFFERENT SIZES:
+    # If a character is too big or too small, change the `zoom` number below!
+    # Examples:
+    #   zoom=0.8  -> Makes the image 20% smaller
+    #   zoom=1.2  -> Makes the image 20% bigger
+    #   zoom=1.0  -> Default size
+    # You can use different zooms for different characters to make them match.
+    # =========================================================================
+
     # PLAYER (MALVIN) expressions
-    image malvin neutral = "characters/malvin/neutral.png"
-    image malvin happy = "characters/malvin/happy.png"
-    image malvin sad = "characters/malvin/sad.png"
-    image malvin surprised = "characters/malvin/surprised.png"
-    image malvin angry = "characters/malvin/angry.png"
+    image malvin neutral = Transform("images/characters/malvin/neutral.png", zoom=0.55)
+    image malvin happy = Transform("images/characters/malvin/happy.png", zoom=0.55)
+    image malvin contemplative = Transform("images/characters/malvin/contemplative.png", zoom=0.8)
+    image malvin sad = Transform("images/characters/malvin/sad.png", zoom=0.55)
+    image malvin surprised = Transform("images/characters/malvin/surprised.png", zoom=0.55)
+    image malvin angry = Transform("images/characters/malvin/angry.png", zoom=0.55)
 
     # STRANGER expressions
-    image stranger neutral = "characters/stranger/neutral.png"
-    image stranger smile = "characters/stranger/smile.png"
-    image stranger contemplative = "characters/stranger/contemplative.png"
-    image stranger stern = "characters/stranger/stern.png"
-    image stranger surprised = "characters/stranger/surprised.png"
+    image stranger neutral = Transform("images/characters/stranger/neutral.png", zoom=0.9)
+    image stranger smile = Transform("images/characters/stranger/smile.png", zoom=0.5)
+    image stranger contemplative = Transform("images/characters/stranger/contemplative.png", zoom=0.5)
+    image stranger stern = Transform("images/characters/stranger/stern.png", zoom=0.5)
+    image stranger surprised = Transform("images/characters/stranger/surprised.png", zoom=0.5)
 
     # LYNETTE expressions
-    image lynette neutral = "characters/lynette/neutral.png"
-    image lynette smile = "characters/lynette/smile.png"
-    image lynette sad = "characters/lynette/sad.png"
-    image lynette angry = "characters/lynette/angry.png"
-    image lynette thinking = "characters/lynette/thinking.png"
+    image lynette neutral = Transform("characters/lynette/neutral.png", zoom=0.5)
+    image lynette smile = Transform("characters/lynette/smile.png", zoom=0.5)
+    image lynette sad = Transform("characters/lynette/sad.png", zoom=0.5)
+    image lynette angry = Transform("characters/lynette/angry.png", zoom=0.5)
+    image lynette thinking = Transform("characters/lynette/thinking.png", zoom=0.5)
 
 # USAGE EXAMPLES (commented)
 # show stranger neutral at left with moveinleft

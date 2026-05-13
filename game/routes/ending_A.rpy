@@ -26,6 +26,8 @@ label ending_move_forward:
 
     pause TEXT_PAUSE_MEDIUM
 
+    show malvin sad at center with dissolve
+
     "The doors close behind you."
     pause TEXT_PAUSE_SHORT
     "The stranger is gone."
@@ -40,6 +42,7 @@ label ending_move_forward:
 
     if empathy >= EMPATHY_THRESHOLD_HIGH:
         # High empathy: Deep understanding reached
+        show malvin contemplative
         "You understand now. The train was never about distance."
         pause TEXT_PAUSE_SHORT
         "It was about letting go."
@@ -56,8 +59,9 @@ label ending_move_forward:
         "but because you chose to carry it differently."
         pause TEXT_PAUSE_MEDIUM
 
-        play music "audio/ending_hopeful.ogg" fadein AUDIO_FADE_IN_SPEED volume AUDIO_BGM_VOLUME
+        play music bgm_ending_hopeful fadein AUDIO_FADE_IN_SPEED volume AUDIO_BGM_VOLUME
 
+        show malvin happy
         "The tracks hum beneath you, carrying you forward."
         pause TEXT_PAUSE_SHORT
         "You lean back against the seat and breathe."
@@ -69,6 +73,7 @@ label ending_move_forward:
 
     elif regret_accepted:
         # Medium empathy: Acknowledged regret
+        show malvin contemplative
         "The seats are empty around you."
         pause TEXT_PAUSE_SHORT
         "You lean back, breathing out a breath you didn't know you were holding."
@@ -79,8 +84,9 @@ label ending_move_forward:
         "For the past. For the future. For yourself."
         pause TEXT_PAUSE_MEDIUM
 
-        play music "audio/ending_hopeful.ogg" fadein AUDIO_FADE_IN_SPEED volume AUDIO_BGM_VOLUME
+        play music bgm_ending_hopeful fadein AUDIO_FADE_IN_SPEED volume AUDIO_BGM_VOLUME
 
+        show malvin neutral
         "The train carries you through the night."
         pause TEXT_PAUSE_SHORT
         "And this time, the darkness doesn't feel like an ending."
@@ -90,6 +96,7 @@ label ending_move_forward:
 
     else:
         # Low empathy: Uncertain but moving
+        show malvin neutral
         "The train pulls away from the platform."
         pause TEXT_PAUSE_SHORT
         "You watch the station shrink behind the glass—the bench, the lights, the stranger."
@@ -98,9 +105,10 @@ label ending_move_forward:
         "It's not a clean break. Maybe there's no such thing."
         pause TEXT_PAUSE_SHORT
 
-        thought "Maybe the point isn't to break. Maybe it's to choose."
+        thoughts "Maybe the point isn't to break. Maybe it's to choose."
 
-        play music "audio/ending_hopeful.ogg" fadein AUDIO_FADE_IN_SPEED volume AUDIO_BGM_VOLUME
+        show malvin contemplative
+        play music bgm_ending_hopeful fadein AUDIO_FADE_IN_SPEED volume AUDIO_BGM_VOLUME
 
         pause TEXT_PAUSE_LONG
 
@@ -123,8 +131,8 @@ label ending_move_forward:
 
     pause TEXT_PAUSE_LONG
 
-    "{color=#ffffff}END - THE LAST TRAIN HOME{/color}"
-    "{color=#8ab4f8}Ending A: Move Forward{/color}"
+    centered "{color=#ffffff}END - THE LAST TRAIN HOME{/color}"
+    centered "{color=#8ab4f8}Ending A: Move Forward{/color}"
 
     pause TEXT_PAUSE_LONG
 

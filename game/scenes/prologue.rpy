@@ -12,14 +12,14 @@ label prologue:
     # ============================================================
 
     scene bg station_night with fade
-    play music "audio/station_ambience.ogg" fadein 2.0 volume MUSIC_VOLUME_DEFAULT
+    play music bgm_station fadein 2.0 volume MUSIC_VOLUME_DEFAULT
 
     narrator "The platform is empty at this hour."
     narrator "Or perhaps it was always empty, and you're only now noticing."
     pause 1.5
 
     narrator "Fluorescent lights hum overhead, casting everything in pale blue."
-    narrator "A single announcement board flickers: <i>Last train departing—23:47</i>"
+    narrator "A single announcement board flickers: {i}Last train departing—23:47{/i}"
     pause 1.0
 
     narrator "You're not sure why you came here tonight."
@@ -36,7 +36,7 @@ label prologue:
     narrator "They don't move. Haven't moved, probably, for a while."
     pause 1.0
 
-    show stranger neutral at left with moveinleft
+    show stranger neutral at right with moveinright
 
     narrator "Their eyes are fixed on the rails ahead, as if waiting for something."
     narrator "Or someone."
@@ -53,21 +53,28 @@ label prologue:
 
     menu:
         "Turn to face them.":
+            show malvin surprised at left with dissolve
             p "I... wasn't aware it was that obvious."
+            show stranger smile
             s "It's not. Most people don't have it. But you do."
             $ affinity_stranger += 1
             $ personality_honest += 1
 
         "Ignore them.":
+            show malvin neutral at left with dissolve
             narrator "You pretend not to hear. But you do."
             narrator "You always do."
+            show stranger neutral
             s "That's fine. Not everyone wants to be seen."
             $ personality_guarded += 1
 
         "Mirror their question.":
+            show malvin neutral at left with dissolve
             p "Aren't we all searching for something?"
+            show stranger smile
             s "There it is. A philosopher on the platform."
             pause 0.5
+            show stranger contemplative
             s "No—not quite. Someone running from something, maybe. But phrasing it as searching."
             $ affinity_stranger += 1
             $ personality_honest += 1
@@ -78,6 +85,7 @@ label prologue:
     # DEEPER CONVERSATION - The stranger probes
     # ============================================================
 
+    show stranger contemplative
     s "Do you ever wonder if people can really change?"
     pause 1.0
     s "Or do they just... carry themselves forward, the same as always?"
@@ -86,7 +94,9 @@ label prologue:
         "Yes. I believe people can change.":
             $ affinity_stranger += 2
             $ personality_honest += 1
+            show malvin neutral
             p "Yes. I think... given the right moment, anyone can change."
+            show stranger smile
             s "Interesting. You sound like you're trying to convince yourself."
             pause 0.5
             s "Or maybe you're speaking from experience."
@@ -95,23 +105,30 @@ label prologue:
         "I'm not sure. It's complicated.":
             $ affinity_stranger += 1
             $ personality_honest += 1
+            show malvin sad
             p "I don't think it's that simple. Some things stay with us. Some don't."
+            show stranger neutral
             s "Honest. At least you're not pretending to have it figured out."
             pause 0.5
             s "That's rarer than you'd think."
             $ has_reflected = True
 
         "Stay silent.":
+            show malvin neutral
             p "..."
             pause 1.5
+            show stranger smile
             s "That's a valid answer too."
             s "Sometimes silence says more than words."
             narrator "They don't seem disappointed by your silence. Just... understanding."
 
         "Ask them first.":
+            show malvin surprised
             p "Do you think people can change?"
             pause 1.0
+            show stranger smile
             s "A good deflection. I like that about you already."
+            show stranger contemplative
             s "No, I think... people don't change. They just finally become who they were all along."
             $ affinity_stranger += 1
 
@@ -121,6 +138,7 @@ label prologue:
     # DEEPER QUESTION - Moving toward vulnerability
     # ============================================================
 
+    show stranger stern
     s "Do you regret anything in your life?"
     pause 1.0
     s "Not just the small things. The big choices."
@@ -130,8 +148,10 @@ label prologue:
             $ affinity_stranger += 2
             $ regret_accepted = True
             $ vulnerability_shown = True
+            show malvin sad
             p "Yes. Some days, the weight feels heavier than other days."
             pause 1.0
+            show stranger contemplative
             s "That means you still care. That's important."
             pause 0.5
             s "A lot of people just go numb."
@@ -140,22 +160,28 @@ label prologue:
 
         "No. I try not to dwell on it.":
             $ personality_guarded += 1
+            show malvin angry
             p "I try to focus on what's ahead, not what's behind."
             pause 0.5
+            show stranger neutral
             s "That's a defense mechanism, you know. Nothing wrong with it."
             s "But running gets tiring eventually."
 
         "I'd rather not say.":
+            show malvin neutral
             p "Some things are mine to carry."
             pause 1.0
+            show stranger neutral
             s "Fair enough. You don't owe me your story."
             pause 0.5
             s "But maybe you owe it to yourself."
             $ personality_guarded += 1
 
         "Everyone has regrets.":
+            show malvin neutral
             p "Doesn't everyone? Regret is part of being human."
             pause 0.5
+            show stranger contemplative
             s "Some people carry it. Others learn to put it down."
             s "The question is: which are you?"
             $ affinity_stranger += 1
@@ -166,6 +192,7 @@ label prologue:
     # ATMOSPHERE BUILD - Train approaching
     # ============================================================
 
+    scene bg station_early_train with fade
     narrator "The rails begin to hum."
     narrator "Deep. Resonant. Unmistakable."
     pause 1.5

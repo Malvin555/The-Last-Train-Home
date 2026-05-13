@@ -29,6 +29,8 @@ label ending_truth:
 
     pause TEXT_PAUSE_LONG
 
+    show malvin surprised at left with dissolve
+
     "You step forward and ask the question that matters most:"
     pause TEXT_PAUSE_SHORT
 
@@ -40,7 +42,7 @@ label ending_truth:
     # THE REVEAL - The Stranger's True Nature
     # ========================================================
 
-    show stranger neutral at center
+    show stranger contemplative at right with dissolve
 
     s "I'm what you avoid every night before sleep."
     pause TEXT_PAUSE_MEDIUM
@@ -62,8 +64,10 @@ label ending_truth:
     if empathy >= EMPATHY_THRESHOLD_HIGH and has_reflected:
         # Full enlightenment: Player fully integrated the truth
         "The platform begins to dissolve into soft white light."
+        scene white with Dissolve(4.0)
         pause TEXT_PAUSE_MEDIUM
 
+        show malvin contemplative
         "You understand now. The stranger isn't a guide. They're a mirror."
         pause TEXT_PAUSE_SHORT
         "Not to show you someone else, but to show you yourself."
@@ -81,19 +85,21 @@ label ending_truth:
         "The stranger steps toward the train."
         pause TEXT_PAUSE_SHORT
 
+        show stranger smile
         s "You don't have to follow me. But I'm not going anywhere you don't want to go."
         pause TEXT_PAUSE_MEDIUM
 
         "They extend their hand."
         pause TEXT_PAUSE_MEDIUM
 
+        show malvin happy
         p "Come with me. Both of us. The one I was and the one I'm becoming."
 
         pause TEXT_PAUSE_SHORT
 
         s "Yes. That's exactly right."
 
-        play music "audio/ending_revelation.ogg" fadein AUDIO_FADE_IN_SPEED volume AUDIO_BGM_VOLUME
+        play music bgm_ending_revelation fadein AUDIO_FADE_IN_SPEED volume AUDIO_BGM_VOLUME
 
         pause TEXT_PAUSE_LONG
 
@@ -109,6 +115,7 @@ label ending_truth:
     elif has_reflected:
         # Partial enlightenment: Player understands but hesitates
         "The platform dissolves slowly."
+        scene white with Dissolve(4.0)
         pause TEXT_PAUSE_SHORT
         "The stranger becomes less distinct. Less 'them' and more... you."
         pause TEXT_PAUSE_LONG
@@ -116,15 +123,17 @@ label ending_truth:
         "Recognition hits like a quiet wave."
         pause TEXT_PAUSE_SHORT
 
+        show malvin contemplative
         thoughts "It was always me. The part that was ready. The part that could heal."
 
         pause TEXT_PAUSE_MEDIUM
 
-        play music "audio/ending_revelation.ogg" fadein AUDIO_FADE_IN_SPEED volume AUDIO_BGM_VOLUME
+        play music bgm_ending_revelation fadein AUDIO_FADE_IN_SPEED volume AUDIO_BGM_VOLUME
 
         "The train doors open again. One last time."
         pause TEXT_PAUSE_MEDIUM
 
+        show stranger neutral
         s "You don't have to board. But you know you can."
         pause TEXT_PAUSE_SHORT
         s "That's the point. You know you can. And that changes everything."
@@ -135,6 +144,7 @@ label ending_truth:
         pause TEXT_PAUSE_MEDIUM
 
         "The platform goes white."
+        scene white with Dissolve(3.0)
 
     else:
         # Minimum enlightenment: Confrontation with possibility
@@ -144,15 +154,17 @@ label ending_truth:
         "But you don't."
         pause TEXT_PAUSE_LONG
 
+        show malvin angry
         thoughts "This is what I've been avoiding. Not the stranger. Myself."
 
         pause TEXT_PAUSE_MEDIUM
 
-        play music "audio/ending_revelation.ogg" fadein AUDIO_FADE_IN_SPEED volume AUDIO_BGM_VOLUME
+        play music bgm_ending_revelation fadein AUDIO_FADE_IN_SPEED volume AUDIO_BGM_VOLUME
 
         "The stranger's face changes. Becomes... more familiar."
         pause TEXT_PAUSE_SHORT
 
+        show stranger neutral
         s "I'm not here to convince you. I'm here because you called. And you're here because part of you answered."
 
         pause TEXT_PAUSE_LONG
@@ -172,6 +184,7 @@ label ending_truth:
         "Not because you're sure."
         pause TEXT_PAUSE_SHORT
         "But because you're ready to find out."
+        scene white with Dissolve(3.0)
 
     pause TEXT_PAUSE_LONG
 
@@ -179,7 +192,7 @@ label ending_truth:
     # CLOSING NARRATION - The Transcendence
     # ========================================================
 
-    scene black with fade
+    scene white with Dissolve(5.0)
 
     pause TEXT_PAUSE_LONG
 
@@ -200,9 +213,9 @@ label ending_truth:
 
     pause TEXT_PAUSE_LONG
 
-    "{color=#ffffff}END - THE LAST TRAIN HOME{/color}"
-    "{color=#8ab4f8}Ending C: The Truth{/color}"
-    "{color=#d4a574}You finally saw yourself.{/color}"
+    centered "{color=#ffffff}END - THE LAST TRAIN HOME{/color}"
+    centered "{color=#8ab4f8}Ending C: The Truth{/color}"
+    centered "{color=#d4a574}You finally saw yourself.{/color}"
 
     pause TEXT_PAUSE_LONG
 

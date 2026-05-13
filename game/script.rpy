@@ -1,4 +1,4 @@
-﻿# game/script.rpy
+# game/script.rpy
 # ============================================================
 # THE LAST TRAIN HOME - Main Entry Point
 # ============================================================
@@ -45,10 +45,32 @@ image ctc:
 
 label start:
 
-    $ quick_menu = True
+    # Hide quick menu during the cinematic intro
+    $ quick_menu = False
 
     scene black with fade
     pause 1.0
+
+    # ============================================================
+    # CINEMATIC INTRO / PREMISE
+    # ============================================================
+
+    show text "We spend our lives waiting." with dissolve
+    pause 2.0
+    hide text with dissolve
+    
+    show text "Waiting for the right moment. For a reason. For permission to let go." with dissolve
+    pause 3.0
+    hide text with dissolve
+
+    show text "But some nights, the waiting has to end." with dissolve
+    pause 2.5
+    hide text with dissolve
+
+    pause 1.0
+
+    # Restore UI
+    $ quick_menu = True
     jump prologue
 
 # ============================================================

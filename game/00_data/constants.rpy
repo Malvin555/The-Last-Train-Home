@@ -1,26 +1,25 @@
 # game/data/constants.rpy
-# Game-wide constants, colors, and configuration
 
 # COLOR PALETTE
-define COLOR_PLAYER = "#e6e6e6"      # Light gray for player text
-define COLOR_STRANGER = "#8ab4f8"    # Soft blue for stranger
-define COLOR_LYNETTE = "#ff9999"        # Warm red for LYNETTE
-define COLOR_NARRATOR = "#ffffff"    # White for narrator
-define COLOR_SYSTEM = "#ffeb3b"      # Yellow for system messages
+define COLOR_PLAYER = "#e6e6e6"      
+define COLOR_STRANGER = "#8ab4f8"    
+define COLOR_LYNETTE = "#ff9999"        
+define COLOR_NARRATOR = "#ffffff"    
+define COLOR_SYSTEM = "#ffeb3b"      
 
-# CHARACTER NAMES (for easy reference and consistency)
+# CHARACTER NAMES 
 define NAME_PLAYER = "Malvin"
 define NAME_STRANGER = "Stranger"
 define NAME_LYNETTE = "Lynette"
 
-# GAME STATES (for tracking player progress)
+# GAME STATES 
 define STATE_INTRO = 0
 define STATE_ACT_ONE = 1
 define STATE_ACT_TWO = 2
 define STATE_CLIMAX = 3
 define STATE_ENDING = 4
 
-# AFFECTION THRESHOLDS (for branching endings)
+# AFFECTION THRESHOLDS 
 define AFFECTION_MIN = 0
 define AFFECTION_LOW = 2
 define AFFECTION_MEDIUM = 4
@@ -33,7 +32,6 @@ define MUSIC_VOLUME_CLIMAX = 0.7
 define SOUND_VOLUME_DEFAULT = 0.8
 
 # EMPATHY / RELATIONSHIP THRESHOLDS
-# Mapping your existing AFFECTION logic to the names used in helpers.rpy
 define EMPATHY_THRESHOLD_LOW = 2
 define EMPATHY_THRESHOLD_MID = 4
 define EMPATHY_THRESHOLD_HIGH = 6
@@ -50,7 +48,7 @@ define AUDIO_FADE_OUT_SPEED = 2.0
 define AUDIO_FADE_IN_SPEED = 2.0
 define AUDIO_BGM_VOLUME = 0.6
 
-# TIME PAUSES (Used in your ending files)
+# TIME PAUSES 
 define TEXT_PAUSE_SHORT = 0.5
 define TEXT_PAUSE_MEDIUM = 1.0
 define TEXT_PAUSE_LONG = 2.0

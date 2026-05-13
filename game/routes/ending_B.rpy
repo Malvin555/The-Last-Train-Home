@@ -27,6 +27,8 @@ label ending_stay_behind:
 
     pause TEXT_PAUSE_MEDIUM
 
+    show malvin neutral at center with dissolve
+
     "You hesitate."
     pause TEXT_PAUSE_SHORT
     "The doors close."
@@ -43,6 +45,7 @@ label ending_stay_behind:
 
     if empathy >= EMPATHY_THRESHOLD_HIGH:
         # High empathy: Conscious, enlightened choice
+        show malvin contemplative
         "You're still here. But something shifted."
         pause TEXT_PAUSE_SHORT
 
@@ -60,8 +63,9 @@ label ending_stay_behind:
         "in the quiet moments you finally let yourself feel."
         pause TEXT_PAUSE_LONG
 
-        play music "audio/ending_ambiguous.ogg" fadein AUDIO_FADE_IN_SPEED volume AUDIO_BGM_VOLUME
+        play music bgm_ending_ambiguous fadein AUDIO_FADE_IN_SPEED volume AUDIO_BGM_VOLUME
 
+        show malvin happy
         "Tomorrow, you might board a train. Or maybe you'll just sit. "
         pause TEXT_PAUSE_SHORT
         "Both are okay. Both are choices."
@@ -75,6 +79,7 @@ label ending_stay_behind:
 
     elif has_reflected:
         # Medium empathy: Thoughtful acceptance
+        show malvin contemplative
         "You're still here. The weight is still here too."
         pause TEXT_PAUSE_SHORT
 
@@ -84,11 +89,12 @@ label ending_stay_behind:
         "It's part of you. And accepting that..."
         pause TEXT_PAUSE_SHORT
 
-        play music "audio/ending_ambiguous.ogg" fadein AUDIO_FADE_IN_SPEED volume AUDIO_BGM_VOLUME
+        play music bgm_ending_ambiguous fadein AUDIO_FADE_IN_SPEED volume AUDIO_BGM_VOLUME
 
         "...that makes it lighter."
         pause TEXT_PAUSE_LONG
 
+        show malvin neutral
         "You sit on the bench. The bench is still warm."
         pause TEXT_PAUSE_SHORT
         "The lights still hum. You're still breathing."
@@ -98,6 +104,7 @@ label ending_stay_behind:
 
     else:
         # Low empathy: Uncertain, but present
+        show malvin sad
         "Nothing has changed."
         pause TEXT_PAUSE_SHORT
         "The station is still empty. The bench is still cold."
@@ -112,6 +119,7 @@ label ending_stay_behind:
 
         pause TEXT_PAUSE_MEDIUM
 
+        show malvin neutral
         "You sit and wait for the next train, or maybe just for dawn."
         pause TEXT_PAUSE_SHORT
         "The uncertainty is still there. But so are you."
@@ -134,8 +142,8 @@ label ending_stay_behind:
 
     pause TEXT_PAUSE_LONG
 
-    "{color=#ffffff}END - THE LAST TRAIN HOME{/color}"
-    "{color=#8ab4f8}Ending B: Stay Behind{/color}"
+    centered "{color=#ffffff}END - THE LAST TRAIN HOME{/color}"
+    centered "{color=#8ab4f8}Ending B: Stay Behind{/color}"
 
     pause TEXT_PAUSE_LONG
 

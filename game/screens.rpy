@@ -521,7 +521,7 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
 
     textbutton _("RETURN"):
         style "return_button"
-        pos (138, 1115)
+        pos (1400, 1115)
 
         action Return()
 
@@ -580,10 +580,6 @@ screen about():
 
     add "gui/game_menu.png"
     
-    if not renpy.variant("small"):
-        add "gui/title_about.png"
-    else:
-        add "gui/phone/title_about.png"
 
     tag menu
 
@@ -634,7 +630,6 @@ screen save():
 
     add "gui/save_menu.png"
 
-    add "gui/title_save.png"
 
     ## If you'd rather use the version without text, in case you're making the game
     ## in another language or simply because you like it more, use "gui/emptyslot_no_text.png"
@@ -713,7 +708,6 @@ screen load():
     
     add "gui/save_menu.png"
 
-    add "gui/title_load.png"
     
     ## If you'd rather use the version without text, in case you're making the game
     ## in another language or simply because you like it more, use "gui/emptyslot_no_text.png"
@@ -946,7 +940,6 @@ screen preferences():
     
     add "gui/game_menu.png"
 
-    add "gui/title_options.png"
 
     tag menu
 
@@ -1110,7 +1103,6 @@ screen history():
 
     add "gui/game_menu.png"
 
-    add "gui/title_history.png"
 
     tag menu
 
@@ -1202,8 +1194,6 @@ style history_label_text:
 screen help():
 
     add "gui/game_menu.png"
-
-    add "gui/title_help.png"
 
     tag menu
 
